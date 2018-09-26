@@ -72,3 +72,10 @@ class Vector(object):
         return abs(self.dotProduct(other)) < tolerance
     def is_zero(self,tolerance=1e-10):
         return self.magnitude() < tolerance
+    def findProjectorOn(self,other):
+        dotProductSelfAndOther = self.dotProduct(other)
+        otherManitude = other.magnitude()
+        selfNormalized = other.normalized()
+        return selfNormalized.scalar(dotProductSelfAndOther/otherManitude)
+    def findOrthogonalOn(self,other):
+        return self-self.findProjectorOn(other)
