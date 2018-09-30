@@ -79,3 +79,8 @@ class Vector(object):
         return selfNormalized.scalar(dotProductSelfAndOther/otherManitude)
     def findOrthogonalOn(self,other):
         return self-self.findProjectorOn(other)
+    def crossProductWith(self,other):
+        x = self.coordinates[1]*other.coordinates[2] - other.coordinates[1]*self.coordinates[2]
+        y = -(self.coordinates[0]*other.coordinates[2] - other.coordinates[0]*self.coordinates[2])
+        z = self.coordinates[0]*other.coordinates[1] - other.coordinates[0]*self.coordinates[1]
+        return Vector([x,y,z])

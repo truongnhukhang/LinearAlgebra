@@ -1,6 +1,6 @@
 from math import acos, cos, degrees
 
-from Vector import Vector
+from vector.Vector import Vector
 
 if __name__ == '__main__':
     # my_Vector = Vector([8.218,-9.341])
@@ -40,13 +40,22 @@ if __name__ == '__main__':
     # my_Vector2 = Vector([-1.821, 1.072, -2.94])
     # print(my_Vector.isParallelWith(my_Vector2))
     # print(my_Vector.isOrthogonalWith(my_Vector2))
-    my_Vector = Vector([3.039, 1.879])
-    my_Vector2 = Vector([0.825, 2.036])
-    print(my_Vector.findProjectorOn(my_Vector2))
-    my_Vector = Vector([-9.88, -3.264, -8.159])
-    my_Vector2 = Vector([-2.155, -9.353, -9.473])
-    print(my_Vector.findOrthogonalOn(my_Vector2))
-    my_Vector = Vector([3.009, -6.172, 3.692, -2.51])
-    my_Vector2 = Vector([6.404, -9.144, 2.759, 8.718])
-    print(my_Vector.findProjectorOn(my_Vector2))
-    print(my_Vector.findOrthogonalOn(my_Vector2))
+    # my_Vector = Vector([3.039, 1.879])
+    # my_Vector2 = Vector([0.825, 2.036])
+    # print(my_Vector.findProjectorOn(my_Vector2))
+    # my_Vector = Vector([-9.88, -3.264, -8.159])
+    # my_Vector2 = Vector([-2.155, -9.353, -9.473])
+    # print(my_Vector.findOrthogonalOn(my_Vector2))
+    # my_Vector = Vector([3.009, -6.172, 3.692, -2.51])
+    # my_Vector2 = Vector([6.404, -9.144, 2.759, 8.718])
+    # print(my_Vector.findProjectorOn(my_Vector2))
+    # print(my_Vector.findOrthogonalOn(my_Vector2))
+    my_Vector = Vector([8.462, 7.893,-8.187])
+    my_Vector2 = Vector([6.984, -5.975, 4.778])
+    print(my_Vector.crossProductWith(my_Vector2))
+    my_Vector = Vector([-8.987, -9.838, 5.031])
+    my_Vector2 = Vector([-4.268, -1.861, -8.866])
+    print(my_Vector.crossProductWith(my_Vector2).magnitude())
+    my_Vector = Vector([1.5, 9.547, 3.691])
+    my_Vector2 = Vector([-6.007, 0.124, 5.772])
+    print(my_Vector.crossProductWith(my_Vector2).magnitude()/2)
