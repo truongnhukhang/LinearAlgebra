@@ -1,6 +1,6 @@
 from decimal import Decimal, getcontext
 
-from vector import Vector
+from vector.Vector import Vector
 
 getcontext().prec = 30
 
@@ -26,14 +26,14 @@ class Line(object):
 
     def set_basepoint(self):
         try:
-            n = self.normal_vector
+            n = self.normal_vector.coordinates
             c = self.constant_term
             basepoint_coords = ['0']*self.dimension
 
             initial_index = Line.first_nonzero_index(n)
             initial_coefficient = n[initial_index]
 
-            basepoint_coords[initial_index] = c/initial_coefficient
+            basepoint_coords[initial_index] = c/Decimal(initial_coefficient)
             self.basepoint = Vector(basepoint_coords)
 
         except Exception as e:
@@ -96,7 +96,19 @@ class Line(object):
                 return k
         raise Exception(Line.NO_NONZERO_ELTS_FOUND_MSG)
 
-
+    def isParalleWith(self,other):
+        return self.normal_vector.isParallelWith(other.normal_vector)
+    def isEqualWith(self,other):
+        x = (self.basepoint.coordinates[0] -other.basepoint.coordinates[0])
+        connectVector = Vector([float(x),0])
+        return connectVector.isOrthogonalWith(self.normal_vector) and connectVector.isOrthogonalWith(other.normal_vector)
+    def intersectionWith(self,other):
+        if(self.isParalleWith(other) or self.isEqualWith(other)):
+            return []
+        common = self.normal_vector.coordinates[0]*other.normal_vector.coordinates[1]-self.normal_vector.coordinates[1]*other.normal_vector.coordinates[0];
+        x = (other.normal_vector.coordinates[1]*float(self.constant_term) - self.normal_vector.coordinates[1]*float(other.constant_term))/common
+        y = (-other.normal_vector.coordinates[0]*float(self.constant_term) + self.normal_vector.coordinates[0]*float(other.constant_term))/common
+        return [x,y]
 class MyDecimal(Decimal):
     def is_near_zero(self, eps=1e-10):
         return abs(self) < eps
