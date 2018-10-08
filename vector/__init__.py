@@ -1,6 +1,7 @@
 from math import acos, cos, degrees
 
 from vector.Line import Line
+from vector.Plane import Plane
 from vector.Vector import Vector
 
 
@@ -83,5 +84,28 @@ def line_exercise() :
     print(line.isParalleWith(line2))
     print(line.isEqualWith(line2))
     print(line.intersectionWith(line2))
+def plane_exercise() :
+    vector = Vector([-0.412, 3.806, 0.728])
+    plane = Plane(vector,-3.46)
+    vector2 = Vector([1.03, -9.515, -1.82])
+    plane2 = Plane(vector2,8.65)
+    print(plane.isParalleWith(plane2))
+    print(plane.isEqualWith(plane2))
+
+    vector = Vector([2.611, 5.528, 0.283])
+    plane = Plane(vector, 4.6)
+    vector2 = Vector([7.715, 8.306, 5.342])
+    plane2 = Plane(vector2, 3.76)
+    print(plane.isParalleWith(plane2))
+    print(plane.isEqualWith(plane2))
+
+    vector = Vector([-7.926, 8.625, -7.217])
+    plane = Plane(vector, -7.952)
+    vector2 = Vector([-2.642, 2.875, -2.404])
+    plane2 = Plane(vector2, -2.443)
+    print(plane.isParalleWith(plane2))
+    print(plane.isEqualWith(plane2))
+
+
 if __name__ == '__main__':
-   line_exercise()
+    plane_exercise()
