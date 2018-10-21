@@ -47,7 +47,7 @@ class LinearSystem(object):
 
     def compute_triangular_form(self):
         newSystem = deepcopy(self)
-
+        self.planes
 
     def indices_of_first_nonzero_terms_in_each_row(self):
         num_equations = len(self)
@@ -57,7 +57,7 @@ class LinearSystem(object):
 
         for i,p in enumerate(self.planes):
             try:
-                indices[i] = p.first_nonzero_index(p.normal_vector)
+                indices[i] = p.first_nonzero_index(p.normal_vector.coordinates)
             except Exception as e:
                 if str(e) == Plane.NO_NONZERO_ELTS_FOUND_MSG:
                     continue
