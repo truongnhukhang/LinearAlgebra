@@ -47,7 +47,9 @@ class LinearSystem(object):
 
     def compute_triangular_form(self):
         newSystem = deepcopy(self)
-        self.planes
+        zeroIndices = self.indices_of_first_nonzero_terms_in_each_row()
+        for index in self.planes:
+
 
     def indices_of_first_nonzero_terms_in_each_row(self):
         num_equations = len(self)

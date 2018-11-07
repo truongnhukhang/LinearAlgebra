@@ -174,4 +174,9 @@ def linear_system_exercise() :
         'test case 9 failed'
 
 if __name__ == '__main__':
-    linear_system_exercise()
+    p0 = Plane(normal_vector=Vector(['1', '1', '1']), constant_term='1')
+    p1 = Plane(normal_vector=Vector(['0', '1', '0']), constant_term='2')
+    p2 = Plane(normal_vector=Vector(['1', '1', '-1']), constant_term='3')
+    p3 = Plane(normal_vector=Vector(['1', '0', '-2']), constant_term='2')
+    s = LinearSystem([p0, p1, p2, p3])
+    print(s.indices_of_first_nonzero_terms_in_each_row())
